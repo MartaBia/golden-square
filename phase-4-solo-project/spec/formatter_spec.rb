@@ -1,11 +1,16 @@
 require 'formatter'
 
 RSpec.describe Formatter do
-  it "formats" do
+  it "formats the footer" do
+    io = double :io
     dish_1 = double :dish, name: "Mixed crostini and tuscan cured meat", price: 6
-    takeaway = double :takeaway, add_menu: dish_1
-    takeaway_formatter = Formatter.new(takeaway)
-    takeaway.add_menu(dish_1)
-    expect(takeaway_formatter.format). to eq "here is the format"
+    takeaway = double :takeaway
+    expect(io).to receive(:puts).with("Welcome! please choose one option from the menu")
+    expect(io).to receive(:puts).with("when you're done, just type 'STOP'") 
+
+    takeaway_formatter = Formatter.new(takeaway, io)
+    takeaway_formatter.print_footer
   end
+
+  #TODO: test print the menu
 end

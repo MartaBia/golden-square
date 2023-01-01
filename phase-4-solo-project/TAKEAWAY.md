@@ -68,7 +68,7 @@ end
 ```ruby
 
 takeaway = Takeaway.new
-takeaway_formatter = TakeawayFormatter(takeaway)
+takeaway_formatter = Formatter.new(takeaway)
 dish_1 = Dish.new("Mixed crostini and tuscan cured meat", 6)
 dish_2 = Dish.new("Lasagne", 7)
 dish_3 = Dish.new("Pumpkin and mushroom lasagne", 8)
